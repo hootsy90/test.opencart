@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>FIX sdek PVZ</name>
+    <code>FIX sdek PVZ</code>
+    <version>1.0</version>
+    <date>14.10.2023</date>
+    <author>hootsy</author>
+    <link>https://opencart.ru</link>
+
+
+    <file path="catalog/view/theme/default/template/extension/quickcheckout/shipping_method.twig">
+        <!-- Расширяем колонку меню для русских слов и подключаем translit.js-->
+        <operation>
+            <search><![CDATA[
+		<td><label for="{{ quote.code }}">{{ quote.title }}</label></td>
+		]]></search>
+            <add position="replace"><![CDATA[
+		<td><label for="{{ quote.code }}">{{ quote.title }}</label>{% if quote.description is not empty %}{{quote.description}}{% endif %}</td>
+		]]></add>
+        </operation>
+    </file>
+</modification>
